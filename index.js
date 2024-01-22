@@ -6,9 +6,12 @@ function getComputerSchoice()
     return choices[randomIndex];
 }
 
+let compScore = 0;
+let playerScore = 0;
+
 function getPlayerSelection()
 {
-    return prompt("Rock, Paper, or Scissors");
+    return "Rock";
 }
 
 function playRound(computerSelection, playerSelection)
@@ -23,6 +26,7 @@ function playRound(computerSelection, playerSelection)
         //console.log("You lost  :(");
         console.log("Computer's selection: " + computerSelection + " " + 
         "Player's Selection: " + playerSelection);
+        compScore++;
         return "You lost  :(";
     }
     else if(playerSelection == "Rock" && computerSelection == "Scissor")
@@ -30,6 +34,7 @@ function playRound(computerSelection, playerSelection)
         //console.log("You win!  :)");
         console.log("Computer's selection: " + computerSelection + " " + 
         "Player's Selection: " + playerSelection);
+        playerScore++;
         return "You won  :)";
     }
     else if(playerSelection == "Paper" && computerSelection == "Rock")
@@ -37,6 +42,7 @@ function playRound(computerSelection, playerSelection)
         //console.log("You win!  :)");
         console.log("Computer's selection: " + computerSelection + " " + 
         "Player's Selection: " + playerSelection);
+        playerScore++;
         return "You won  :)";
     }
     else if(playerSelection == "Paper" && computerSelection == "Scissor")
@@ -44,6 +50,7 @@ function playRound(computerSelection, playerSelection)
         //console.log("You lose!  :(");
         console.log("Computer's selection: " + computerSelection + " " + 
         "Player's Selection: " + playerSelection);
+        compScore++;
         return "You lost  :(";
     }
     else if(playerSelection == "Scissors" && computerSelection == "Rock")
@@ -51,6 +58,7 @@ function playRound(computerSelection, playerSelection)
         //console.log("You lose!  :(");
         console.log("Computer's selection: " + computerSelection + " " + 
         "Player's Selection: " + playerSelection);
+        compScore++;
         return "You lost  :(";
     }
     else
@@ -58,24 +66,40 @@ function playRound(computerSelection, playerSelection)
         //console.log("You win!  :)");
         console.log("Computer's selection: " + computerSelection + " " + 
         "Player's Selection: " + playerSelection);
+        playerScore++;
         return "You won  :)";
     }
 
 
 }
 
-function game()
+function game(_playerSelection)
 {   
     
-    let count = 10;
-    while(count > 0)
-    {
-        let computerSelection = getComputerSchoice();
-        let playerSelection = getPlayerSelection();
-        console.log(playRound(computerSelection,playerSelection));
-        count--;
-    }
+    
+    let computerSelection = getComputerSchoice();
+    let playerSelection = _playerSelection;
+    console.log(playRound(computerSelection,playerSelection));
+    console.log("Player Score: " + playerScore + " Computer's Score: " + compScore)
+    console.log("~~~~~~~~~~~~~~~~~~~~~")
+    //count--;
+    
 }
 
+const body = document.body;
 
-console.log(game());
+const rockBtn = document.querySelector("#rock");
+const paperBtn = document.querySelector("#paper");
+const scissorBtn = document.querySelector("#scissors");
+
+rockBtn.onclick = function(){
+    console.log(game("Rock"))
+};
+
+paperBtn.onclick = function(){
+    console.log(game("Paper"))
+};
+
+scissorBtn.onclick = function(){
+    console.log(game("Scissors"))
+};
