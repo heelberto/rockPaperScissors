@@ -4,7 +4,6 @@ body {
 
 .buttonContainer{
     display: flex;
-    border: 2px solid black;
     width: 800px;
     height: auto;
     margin-left: 550px;
@@ -23,7 +22,6 @@ img {
 
 .imageContainer{
     display: flex;
-    border: 2px solid black;
     width: 800px;
     height: auto;
     margin-left: 550px;
