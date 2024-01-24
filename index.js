@@ -29,10 +29,7 @@ function getComputerSchoice()
 
 
 
-function getPlayerSelection()
-{
-    return "Rock";
-}
+
 
 
 const body = document.body;
@@ -41,17 +38,30 @@ const rockBtn = document.querySelector("#rock");
 const paperBtn = document.querySelector("#paper");
 const scissorBtn = document.querySelector("#scissors");
 
+let playerChoice = "";
+
 rockBtn.onclick = function(){
-    console.log(game("Rock"))
+    playerChoice = "Rock";
+    game();
+    //console.log(game("Rock"))
 };
 
 paperBtn.onclick = function(){
-    console.log(game("Paper"))
+    playerChoice = "Paper";
+    game();
+    //console.log(game("Paper"))
 };
 
 scissorBtn.onclick = function(){
-    console.log(game("Scissors"))
+    playerChoice = "Scissors";
+    game();
+    //console.log(game("Scissors"))
 };
+
+function getPlayerSelection()
+{
+    return playerChoice;
+}
 
 function playRound(computerSelection, playerSelection)
 {
@@ -119,9 +129,35 @@ function playRound(computerSelection, playerSelection)
 
 function game(_playerSelection)
 {   
-    let computerSelection = getComputerSchoice();
-    let playerSelection = _playerSelection;
-    console.log(playRound(computerSelection,playerSelection));
-    console.log("Player Score: " + playerScore + " Computer's Score: " + compScore)
-    console.log("~~~~~~~~~~~~~~~~~~~~~")
-}
+    let count = 5;
+
+    
+
+        let playerSelection = getPlayerSelection();
+        let computerSelection = getComputerSchoice();
+        
+        //console.log(playRound(computerSelection,playerSelection));
+        //console.log("Player Score: " + playerScore + " Computer's Score: " + compScore)
+        //console.log("~~~~~~~~~~~~~~~~~~~~~")
+        playRound(computerSelection,playerSelection);
+
+        if(playerScore === 5 || compScore ===5)
+        {
+            const winner = playerScore === 5 ? "Player" : "Computer";
+            console.log(winner + "wins!");
+
+            const playAgain = confirm("Do you want to play again?");
+
+            if(playAgain)
+            {
+                compScore = 0;
+                playerScore = 0;
+                //count = 5;
+            }
+            
+        }
+
+
+
+}   
+
