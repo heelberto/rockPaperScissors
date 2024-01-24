@@ -65,7 +65,6 @@ function playRound(computerSelection, playerSelection)
 
     if(playerSelection == computerSelection )
     {
-        //console.log("Tie");
         body.append(tie);
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);
@@ -73,7 +72,6 @@ function playRound(computerSelection, playerSelection)
     }
     else if(playerSelection == "Rock" && computerSelection == "Paper")
     {
-        compScore++;
         updateCompScore();
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);
@@ -81,7 +79,6 @@ function playRound(computerSelection, playerSelection)
     }
     else if(playerSelection == "Rock" && computerSelection == "Scissors")
     {
-        playerScore++;
         updatePlayerScore();
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);
@@ -89,7 +86,6 @@ function playRound(computerSelection, playerSelection)
     }
     else if(playerSelection == "Paper" && computerSelection == "Rock")
     {
-        playerScore++;
         updatePlayerScore();
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);     
@@ -97,7 +93,6 @@ function playRound(computerSelection, playerSelection)
     }
     else if(playerSelection == "Paper" && computerSelection == "Scissors")
     {
-        compScore++;
         updateCompScore();
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);
@@ -105,7 +100,6 @@ function playRound(computerSelection, playerSelection)
     }
     else if(playerSelection == "Scissors" && computerSelection == "Rock")
     {
-        compScore++;
         updateCompScore();
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);
@@ -113,7 +107,6 @@ function playRound(computerSelection, playerSelection)
     }
     else
     {
-        playerScore++;
         updatePlayerScore();
         scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
         body.append(scores);     
