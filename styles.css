@@ -2,12 +2,17 @@ body {
     background-color: cornflowerblue;
 }
 
+.gameContainer{
+    display: flex;
+    justify-content: center;
+}
+
 .buttonContainer{
     display: flex;
     width: 800px;
     height: auto;
-    margin-left: 550px;
     justify-content: space-around;
+    margin-top:50px;
     align-items: center;
 }
 
@@ -24,7 +29,13 @@ img {
     display: flex;
     width: 800px;
     height: auto;
-    margin-left: 550px;
     justify-content: space-around;
+    align-items: center;
+}
+
+
+.compScore,.playerScore{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }

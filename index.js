@@ -65,61 +65,68 @@ function getPlayerSelection()
 
 function playRound(computerSelection, playerSelection)
 {
+    const dialogDiv = document.createElement("div");
     const p = document.createElement("p")
-    const scores = document.createElement("p");
+    //const scores = document.createElement("p");
+    body.append(dialogDiv);
+    dialogDiv.style.display = "flex";
+    dialogDiv.style.justifyContent = "center";
+    dialogDiv.append(p);
     p.innerText = "Computer's selection: " + computerSelection + "  |||||  " + "Player's Selection: " + playerSelection;
-    body.append(p);
+    dialogDiv.append(p);
     const tie = document.createElement("p");
     tie.innerText = "Tie";
     
 
+    
+
     if(playerSelection == computerSelection )
     {
-        body.append(tie);
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);
+        dialogDiv.append(tie);
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+        //dialogDiv.append(scores);
         return "Tie";
     }
     else if(playerSelection == "Rock" && computerSelection == "Paper")
     {
         updateCompScore();
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+        //dialogDiv.append(scores);
         return "You lost  :(";
     }
     else if(playerSelection == "Rock" && computerSelection == "Scissors")
     {
         updatePlayerScore();
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+       // dialogDiv.append(scores);
         return "You won  :)";
     }
     else if(playerSelection == "Paper" && computerSelection == "Rock")
     {
         updatePlayerScore();
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);     
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+        //dialogDiv.append(scores);     
         return "You won  :)";
     }
     else if(playerSelection == "Paper" && computerSelection == "Scissors")
     {
         updateCompScore();
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+        //dialogDiv.append(scores);
         return "You lost  :(";
     }
     else if(playerSelection == "Scissors" && computerSelection == "Rock")
     {
         updateCompScore();
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+        //dialogDiv.append(scores);
         return "You lost  :(";
     }
     else
     {
         updatePlayerScore();
-        scores.innerText = "Computer's score: " + compScore + "            ||||   Player's score: " + playerScore;
-        body.append(scores);     
+        //scores.innerText = "\nComputer's score: " + compScore + "            ||||   Player's score: " + playerScore;
+        //dialogDiv.append(scores);     
         return "You won  :)";
     }
 
@@ -146,7 +153,7 @@ function game(_playerSelection)
             const winner = playerScore === 5 ? "Player" : "Computer";
             console.log(winner + "wins!");
 
-            const playAgain = confirm("Do you want to play again?");
+            const playAgain = confirm(winner + " won!\n" +"Do you want to play again?");
 
             if(playAgain)
             {
